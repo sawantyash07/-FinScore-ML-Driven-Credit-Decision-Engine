@@ -105,35 +105,7 @@ streamlit run app.py
 ```
 > The application will open automatically in your browser at `http://localhost:8501` (or `http://localhost:8502`).
 
----
 
-## 🎯 Interview Presentation Guide (How to Explain in an Interview)
-
-Use this structured pitch when explaining this project to technical interviewers:
-
-### 🗣️ 30-Second Elevator Pitch
-> *"FinScore is a full-stack Machine Learning credit decision engine I built using Python and Streamlit. It solves manual underwriting bottlenecks by automating applicant data preprocessing, training a Logistic Regression risk model on financial indicators, and providing real-time loan approval decisions with probability scoring. It includes reactive session-state management, dual-mode tabular views, and automated PDF report generation via ReportLab."*
-
----
-
-### 💡 Key Technical Talking Points
-
-#### 1. Data Cleaning & Imputation Pipeline
-* **Challenge**: Raw financial datasets frequently contain missing values in numeric fields (e.g., Credit Score, Income) and categorical fields (e.g., Employment Status).
-* **Solution**: Applied scikit-learn's `SimpleImputer` using `mean` strategy for numeric attributes and `most_frequent` mode for categorical attributes.
-
-#### 2. Machine Learning Model Choice
-* **Choice**: `LogisticRegression(max_iter=1000)`.
-* **Why**: Provides calibrated probability output via `.predict_proba()` which serves as a transparent *Confidence Score* for financial risk assessment, adhering to explainable AI principles in banking.
-
-#### 3. State Reactivity in Streamlit
-* **Challenge**: Streamlit scripts execute top-to-bottom, meaning updates made in forms don't automatically reflect in earlier tabs on the same run.
-* **Solution**: Leveraged `st.session_state` to store the active DataFrame and `st.rerun()` upon form submission to immediately sync data across the Dashboard, Predictor, and Raw Data views.
-
-#### 4. Programmatic PDF Document Export
-* **Solution**: Integrated ReportLab `SimpleDocTemplate` in landscape mode to dynamically format 20+ dataset columns, header metadata, summary statistics, and alternating row styling into a downloadable PDF document.
-
----
 
 ## 📂 Project Structure
 
